@@ -1,5 +1,6 @@
-import React, {Fragment, useState} from 'react'
-const Formulario = () => {
+import React, {Fragment, useState} from 'react';
+import uuid from 'uuid/v4';
+const Formulario = ({crearCita}) => {
     const [cita, actualizarCita] = useState({
         mascota: '',
         propietario:'',
@@ -12,7 +13,6 @@ const Formulario = () => {
     const [errorText, actualizarErrorText] = useState('Todos los campos son obligatorios')
 
     const actualizarState = (e) => {
-        console.log(e.target.value);
         actualizarCita({
             ...cita,
             [e.target.name] : e.target.value
@@ -22,12 +22,26 @@ const Formulario = () => {
 
     const submitCita = (e) => {
         e.preventDefault();
+       
         if(mascota.trim() === '' || propietario.trim() === '' || fecha.trim() === '' || hora.trim() === '' || sintomas.trim() === ''  ){
             actualizarError(true);
             return;
         }else{
             actualizarError(false);
+            idCita();
+            crearCita(cita);
+            actualizarCita({
+                mascota: '',
+                propietario:'',
+                fecha:'',
+                hora:'',
+                sintomas:''
+            })
         }
+       
+    }
+    const idCita = () => {
+        cita.id = uuid();
     }
     return ( 
         <Fragment>

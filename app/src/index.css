@@ -91,3 +91,11 @@ input[type="time"] {
   text-align: center;
   font-family:  'Staatliches', cursive;
 } 
+.boxCitas{
+  color: white;
+    padding: 3rem 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Staatliches', cursive;
+    letter-spacing: 1px;
+}
