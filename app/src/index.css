@@ -99,3 +99,17 @@ input[type="time"] {
     font-family: 'Staatliches', cursive;
     letter-spacing: 1px;
 }
+.formulario{
+  width:50%;
+}
+.boxInputText, .boxInputDate,.boxTextArea,.boxInputTime{
+  padding: 0 0 8px 0;
+}
+.error{
+  margin:0;
+  color:deepskyblue;
+  margin-bottom:4px;
+}
+input{
+  margin-bottom:8px;
+}
