@@ -4,6 +4,7 @@ import InputDate from './input-date';
 import InputTime from './input-time';
 import TextArea from './text-area';
 import ButtonSubmit from './btn-submit';
+import PropTypes from 'prop-types';
 const Formulario = ({data,setData,citas,setCitas,setError,noFillInput,setNoFillInput,errorText}) => {
     
     const {mascota, propietario,fecha,hora,sintomas} = data;
@@ -105,6 +106,16 @@ const Formulario = ({data,setData,citas,setCitas,setError,noFillInput,setNoFillI
            
         </Fragment>
      );
+}
+
+Formulario.propTypes = {
+    data: PropTypes.object.isRequired,
+    setData: PropTypes.func.isRequired,
+    citas: PropTypes.array.isRequired,
+    setCitas: PropTypes.func.isRequired,
+    noFillInput: PropTypes.string.isRequired,
+    setNoFillInput: PropTypes.func.isRequired,
+    errorText: PropTypes.string.isRequired,
 }
  
 export default Formulario;

@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from 'react';
+import React, {Fragment, useState, useEffect} from 'react';
 import Formulario from './components/formulario/Formulario';
 import Citas from './components/citas';
 import uuid from 'uuid/v4';
@@ -14,18 +14,35 @@ function App() {
 		sintomas:''
 	})
 
+	
+	
+
 	//state error inputs
-	const [error, setError] = useState(false);
+	const [setError] = useState(false);
 
 	//state text mensaje error inputs
-	const [errorText, setErrorText] = useState('es obligatorio');
+	const [errorText] = useState('es obligatorio');
 
 	//state validación inputs
 	const [noFillInput, setNoFillInput] = useState('');
 
-	//state citas
-	const [citas, setCitas] = useState([]);
 
+	//localStorage
+	let citasIniciales = JSON.parse(localStorage.getItem('citas'));
+
+	if(!citasIniciales){
+		citasIniciales=[];
+	}
+	//state citas
+	const [citas, setCitas] = useState(citasIniciales);
+	//localStorage
+	useEffect( () => {
+		if(citasIniciales){
+			localStorage.setItem('citas', JSON.stringify(citas))
+		}else{
+			localStorage.setItem('citas', JSON.stringify([]))
+		}
+	},[citas, citasIniciales]);
 
 	const handleClickDeleteCita = (mascota) => {
 		const citaEliminar = citas.filter( (cita) => cita.mascota !== mascota);
