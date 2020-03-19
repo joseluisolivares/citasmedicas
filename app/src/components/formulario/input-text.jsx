@@ -1,7 +1,5 @@
 import React, {Fragment} from 'react'
-const InputText = ({placeholder,className,name,label,handleChangeInput,noFillInput,errorText}) => {
-    console.log(typeof name);
-    console.log(noFillInput);
+const InputText = ({placeholder,className,name,label,handleChangeInput,noFillInput,errorText,value}) => {
     return ( 
         <Fragment>
             <div className="boxInputText">
@@ -12,6 +10,7 @@ const InputText = ({placeholder,className,name,label,handleChangeInput,noFillInp
                     className={className}
                     name={name}
                     onChange={handleChangeInput}
+                    value={value}
                 />
                 {noFillInput === name ? <p className="error"> El campo <strong>{name}</strong> {errorText}   </p> : null}
             </div>

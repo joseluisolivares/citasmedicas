@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react'
-const InputTime = ({type,className,name,label,handleChangeInput,noFillInput,errorText}) => {
+const InputTime = ({type,className,name,label,handleChangeInput,noFillInput,errorText,value}) => {
 
     return ( 
         <Fragment>
@@ -10,6 +10,7 @@ const InputTime = ({type,className,name,label,handleChangeInput,noFillInput,erro
                     className={className}
                     name={name}
                     onChange={handleChangeInput}
+                    value={value}
                 />
                 {noFillInput === name ? <p className="error"> El campo <strong>{name}</strong> {errorText}   </p> : null}
             </div>

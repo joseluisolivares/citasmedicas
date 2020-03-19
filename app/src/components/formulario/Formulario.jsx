@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from 'react';
+import React, {Fragment} from 'react';
 import InputText from './input-text';
 import InputDate from './input-date';
 import InputTime from './input-time';
@@ -29,6 +29,13 @@ const Formulario = ({data,setData,citas,setCitas,setError,noFillInput,setNoFillI
         }
         
         setCitas([...citas,data]);
+        setData({
+            mascota: '',
+            propietario:'',
+            fecha:'',
+            hora:'',
+            sintomas:''
+        })
     }
     return ( 
         <Fragment>
@@ -39,52 +46,55 @@ const Formulario = ({data,setData,citas,setCitas,setError,noFillInput,setNoFillI
             >
                 <InputText
                     label='Nombre de la mascota'
-                    className="u"
                     placeholder='Mascota'
                     name="mascota"
                     className="u-full-width"
                     handleChangeInput={handleChangeInput}
                     noFillInput={noFillInput}
                     errorText={errorText}
+                    value={mascota}
                 />
                 <InputText
                     label='Nombre del propietario'
-                    className="u"
                     placeholder='Propietario'
                     name="propietario"
                     className="u-full-width"
                     handleChangeInput={handleChangeInput}
                     noFillInput={noFillInput}
                     errorText={errorText}
+                    value={propietario}
                 />
                 <InputDate
                     type="date"
                     label='Fecha de la cita'
-                    className="u"
                     name="fecha"
                     className="u-full-width"
                     handleChangeInput={handleChangeInput}
                     noFillInput={noFillInput}
                     errorText={errorText}
+                    value={fecha}
+
                 />
                 <InputTime
                     type="time"
                     label='Hora de la cita'
-                    className="u"
                     name="hora"
                     className="u-full-width"
                     handleChangeInput={handleChangeInput}
                     noFillInput={noFillInput}
                     errorText={errorText}
+                    value={hora}
+
                 />
                 <TextArea
                     label='Síntomas'
-                    className="u"
                     name="sintomas"
                     className="u-full-width"
                     handleChangeInput={handleChangeInput}
                     noFillInput={noFillInput}
                     errorText={errorText}
+                    value={sintomas}
+
                 />
                 <ButtonSubmit
                     type='submit'
